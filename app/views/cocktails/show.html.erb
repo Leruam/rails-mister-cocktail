@@ -5,10 +5,8 @@
 
 <ol>
   <% @cocktail.doses.each do |dose| %>
-      <li> <%= dose.ingredient %> - <%= dose.description %> </li>
+      <li> <%= dose.ingredient.name %> - <%= dose.description %> </li>
   <% end %>
 </ol>
 
 <%= link_to "Add new dose", new_cocktail_dose_path(@cocktail) %>
-
-<h2><%= @cocktail.ingredients %> </h2>
