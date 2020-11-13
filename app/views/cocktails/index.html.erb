@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container" >
 
   <%= render 'navbar'%>
 
   <div class="cards">
 
     <% @cocktails.each do |cocktail| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../../assets/images/cocktail_2.png)">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(' <%= asset_path("cocktail_1.png") %> ')">
         <%= link_to cocktail.name, cocktail_path(cocktail)  %>
       </div>
     <% end %>
