@@ -3,13 +3,20 @@
   <%= render 'navbar'%>
 
   <div class="cards">
-
     <% @cocktails.each do |cocktail| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(' <%= asset_path("cocktail_1.png") %> ')">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+      url('<%= cl_image_path(cocktail.pictures[0].key, :width => 100, :height => 150, :crop => :fill) %>')">
         <%= link_to cocktail.name, cocktail_path(cocktail)  %>
       </div>
     <% end %>
-
-
   </div>
+
 </div>
+
+<!-- tag et path cloudinary pour le dernier cocktail -->
+  <%#= cl_image_tag(@cocktails.last.picture.key, width: 400, height: 300, crop: :fill) %>
+
+  <%#= cl_image_path @cocktails.last.picture.key, height: 300, width: 400, crop: :fill %>
+
+
+
