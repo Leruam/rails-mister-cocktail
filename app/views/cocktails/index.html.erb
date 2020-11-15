@@ -3,15 +3,15 @@
 
   <div class="cards">
     <% @cocktails.each do |cocktail| %>
-      <% if cocktail.pictures[0].nil? %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-          url('https://images.unsplash.com/photo-1580554191498-273d5d0ee6ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60')">
-        <%= link_to cocktail.name, cocktail_path(cocktail)  %>
+      <% if cocktail.pictures.attached? %>
+         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+          url('<%= cl_image_path(cocktail.pictures[0].key, :width => 100, :height => 150, :crop => :fill) %>')">
+          <%= link_to cocktail.name, cocktail_path(cocktail)  %>
         </div>
       <% else %>
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-          url('<%= cl_image_path(cocktail.pictures[0].key, :width => 100, :height => 150, :crop => :fill) %>')">
-          <%= link_to cocktail.name, cocktail_path(cocktail)  %>
+          url('https://images.unsplash.com/photo-1580554191498-273d5d0ee6ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60')">
+        <%= link_to cocktail.name, cocktail_path(cocktail)  %>
         </div>
       <% end %>
     <% end %>
