@@ -1,5 +1,6 @@
-<h1>Cocktails#new</h1>
+<div class="container" >
 
+<%= render 'navbar'%>
 
 <%= simple_form_for(@cocktail) do |f| %>
 <div class="form-inputs">
@@ -14,3 +15,5 @@
       <%= f.button :submit, class:"btn btn-primary" %>
     </div>
   <% end %>
+
+</div>
